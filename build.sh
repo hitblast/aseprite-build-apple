@@ -8,7 +8,7 @@ export ROOT=$PWD
 export DEPS=$ROOT/deps
 export ASEPRITE=$DEPS/aseprite
 export SKIA=$DEPS/skia
-export ASEZIP="https://github.com/aseprite/aseprite/releases/download/$LATEST_RELEASE/Aseprite-$LATEST_RELEASE-Source.zip"
+export ASEZIP=$(curl -s https://api.github.com/repos/aseprite/aseprite/releases/latest | grep -o '"browser_download_url": "[^"]*"' | cut -d'"' -f4)
 export SKIAZIP=https://github.com/aseprite/skia/releases/download/m124-08a5439a6b/Skia-macOS-Release-arm64.zip
 export ARCH=arm64
 
