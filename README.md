@@ -37,7 +37,7 @@ The script has successfully built Aseprite on the following device:
 
 ```bash
 # Clone using git.
-$ git clone https://github.com/hitblast/aseprite-build-apple-m1.git
+$ git clone https://codeberg.org/hitblast/aseprite-build-apple-m1.git
 ```
 
 2. Run the script:
