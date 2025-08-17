@@ -29,7 +29,7 @@ The script has successfully built Aseprite on the following device:
 - Chip: Apple M1
 - Memory: 8 GB
 - Storage: 256 GB
-- macOS Version: Sonoma (14.6)
+- macOS Version: Sequoia
 
 ### 🚀 Build Instructions
 
