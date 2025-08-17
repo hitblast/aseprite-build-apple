@@ -54,9 +54,5 @@ $ chmod +x build.sh
 $ ./build.sh
 ```
 
-**NOTE:** If you're using sccache for compiling, you may unset `CC` and `CXX` variables before executing the script. Here's
-a shortcut:
-
-```bash
-$ unset CC && unset CXX && ./build.sh
-```
+> [!WARNING]
+> This script **ignores sccache** as some parts of the compilation process haven't been optimized for the linker.
