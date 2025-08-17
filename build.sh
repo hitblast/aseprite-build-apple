@@ -37,6 +37,14 @@ else
     exit 1
 fi
 
+if which -s sccache; then
+    echo "sccache found, unsetting CC & CXX"
+    unset CC
+    unset CXX
+else
+    echo "sccache not found, skipping CC/CXX unset"
+fi
+
 
 # Deps download and checks
 DUMMY=$(ls $DEPS 2>&1)
