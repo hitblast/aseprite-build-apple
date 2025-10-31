@@ -1,58 +1,62 @@
-## ✨ Aseprite Build Script for Apple Silicon
+# ✨ Aseprite Build Script for Apple Silicon
 
-This script will build Aseprite for Apple Silicon using the latest version of Aseprite and Skia's binary builds.
-A minimum of **macOS 11 (Big Sur)** is required to run the script.
+This script builds Aseprite for the latest Apple Silicon Macs. A minimum of **macOS 11 (Big Sur)** is required to run the script.
 
-### Table of Contents
+## Table of Contents
 
+- [Why](#why)
+- [Requirements](#requirements)
+- [Build Instructions](#build-instructions)
+- [Caveats](#caveats)
+- [License](#License)
 
-- [Requirements](#-requirements)
-- [Test Device](#-test-device)
-- [Build Instructions](#-build-instructions)
+## Why
 
-### ❔ Why?
+Aseprite is a powerful tool for creating pixel art and animations, and as a hobby, I've been doing pixel art for quite a while. However, building it on my MacBook was a challenging process. Thus, I've made this script which aims to simplify the build process by automating all of the steps, requiring little to no manual input.
 
-Aseprite is a powerful tool for creating pixel art and animations, and as a hobby I've been doing pixel art for quite a while. However, building it on my MacBook was a challenging process. Thus, I've made this script which aims to simplify the build process by automating all of the steps, requiring little to no manual input.
+## Requirements
 
-### 🔨 Requirements
+> [!NOTE]
+> The script has been successfully tested with **macOS Tahoe 26**.
 
 - [Xcode](https://developer.apple.com/xcode/)
 - [CMake](https://cmake.org/)
 - [Ninja](https://ninja-build.org/)
+- [libyaml](https://github.com/yaml/libyaml)
 - [Git](https://git-scm.com/)
 
-### 🔖 Test Device
+If you want to install the dependencies, use this Homebrew command:
 
-The script has successfully built Aseprite on the following device:
+```bash
+brew install libyaml cmake ninja git
+```
 
-- Name: MacBook Air (M1, 2020)
-- Chip: Apple M1
-- Memory: 8 GB
-- Storage: 256 GB
-- macOS Version: Sequoia
-
-### 🚀 Build Instructions
+## Instructions
 
 1. Clone the repository:
 
 ```bash
 # Clone using git.
-$ git clone https://codeberg.org/hitblast/aseprite-build-apple-m1.git
+git clone https://github.com/hitblast/aseprite-build-apple.git
 ```
 
 2. Run the script:
-(Since `xattr` is required to change some default attributes for creating the app, you might be prompted to enter your `sudo` password.)
 
 ```bash
 # Change directory to the script.
-$ cd aseprite-build-apple-m1
+cd aseprite-build-apple
 
 # Make the script executable.
-$ chmod +x build.sh
+chmod +x build.sh
 
 # Run the script.
-$ ./build.sh
+./build.sh
 ```
 
-> [!WARNING]
-> This script **ignores sccache** as some parts of the compilation process haven't been optimized for the linker.
+## Caveats
+
+- The script removes `sccache` from the `CC` and `CXX` environment variables if the user's environment is using it as the primary linker for C/C++ compilations, since Aseprite's source code does not behave well with it.
+
+## License
+
+This repo is under [Apache License (Version 2.0)](./LICENSE).
