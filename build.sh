@@ -12,22 +12,14 @@ export ASEZIP=$(curl -s https://api.github.com/repos/aseprite/aseprite/releases/
 export SKIAZIP=https://github.com/aseprite/skia/releases/download/m124-08a5439a6b/Skia-macOS-Release-arm64.zip
 export ARCH=arm64
 
-# Dependencies check
-deps_check() {
-    command=$1
-    message=$2
-    not_found_message=$3
-
-    if which -s $command; then
-        echo $message
-    else
-        echo $not_found_message
-        exit 1
-    fi
-}
-
-deps_check "cmake" "CMake found." "CMake not found. Install CMake and try again."
-deps_check "ninja" "Ninja found." "Ninja not found. Install Ninja and try again."
+if which -s cmake && \
+   which -s ninja && \
+   { [ -n "$(ls /usr/local/include/yaml.h /opt/homebrew/include/yaml.h 2>/dev/null)" ] || \
+     [ -n "$(ls /usr/local/lib/libyaml.* /opt/homebrew/lib/libyaml.* 2>/dev/null)" ]; }; then
+    echo "cmake, libyaml and ninja found."
+else
+    echo "Dependencies not found. Make sure these are installed: cmake ninja libyaml"
+fi
 
 DUMMY=$( xcode-select -p 2>&1 )
 if [ "$?" -eq 0 ]; then
@@ -141,7 +133,7 @@ if [ "$?" -eq 0 ]; then
         cp -r $ASEPRITE/build/bin/data ./Aseprite.app/Contents/Resources/
         sed -i "" "s/1.2.34.1/$LATEST_RELEASE/" ./Aseprite.app/Contents/Info.plist
 
-        sudo xattr -r -d com.apple.quarantine ./Aseprite.app
+        xattr -r -d com.apple.quarantine ./Aseprite.app
 
         echo "Aseprite.app is ready. You can find it in the Aseprite directory."
         exit 0
