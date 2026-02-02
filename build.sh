@@ -18,7 +18,12 @@ if which -s cmake && \
      [ -n "$(ls /usr/local/lib/libyaml.* /opt/homebrew/lib/libyaml.* 2>/dev/null)" ]; }; then
     echo "cmake, libyaml and ninja found."
 else
-    echo "Dependencies not found. Make sure these are installed: cmake ninja libyaml"
+    if which -s brew; then
+        echo "Attempting to install the following with Homebrew: cmake, ninja, libyaml"
+        brew install cmake ninja libyaml
+    else
+        echo "Dependencies not found. Make sure these are installed: cmake, ninja, libyaml"
+    fi
 fi
 
 DUMMY=$( xcode-select -p 2>&1 )
