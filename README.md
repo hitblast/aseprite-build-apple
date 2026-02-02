@@ -55,7 +55,7 @@ chmod +x build.sh
 
 ## Caveats
 
-- The script removes `sccache` from the `CC` and `CXX` environment variables if the user's environment is using it as the primary linker for C/C++ compilations, since Aseprite's source code does not behave well with it.
+- The script temporarily unsets the `CC` and `CXX` environment variables during execution since Aseprite's source code does not behave well with it.
 
 ## License
 
