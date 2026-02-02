@@ -141,6 +141,7 @@ if [ "$?" -eq 0 ]; then
         xattr -r -d com.apple.quarantine ./Aseprite.app
 
         echo "Aseprite.app is ready. You can find it in the Aseprite directory."
+        echo "NOTE: For recompilation convenience, the source and other dependencies are stored in the deps/ directory. You may delete this in order to compile a newer version."
         exit 0
     else
         echo "Failed to compile. Check Skia version and try again later..."
