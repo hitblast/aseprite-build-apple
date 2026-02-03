@@ -23,6 +23,8 @@ else
         brew install cmake ninja libyaml
     else
         echo "Dependencies not found. Make sure these are installed: cmake, ninja, libyaml"
+        echo "TIP: Install Homebrew and run: brew install cmake ninja libyaml"
+        exit 1
     fi
 fi
 
@@ -132,16 +134,25 @@ if [ "$?" -eq 0 ]; then
 
         cd $ROOT && mkdir -p Aseprite.app/Contents
         cp -r ./Aseprite.app.template/. ./Aseprite.app/Contents/
-        mkdir -p ./Aseprite.app/Contents/MacOS
-        mkdir -p ./Aseprite.app/Contents/Resources
+
         cp $ASEPRITE/build/bin/aseprite ./Aseprite.app/Contents/MacOS/
         cp -r $ASEPRITE/build/bin/data ./Aseprite.app/Contents/Resources/
         sed -i "" "s/1.2.34.1/$LATEST_RELEASE/" ./Aseprite.app/Contents/Info.plist
 
-        xattr -r -d com.apple.quarantine ./Aseprite.app
+        clear
+        if [ -d "/Applications/Aseprite.app" ]; then
+            xattr -r -d com.apple.quarantine ./Aseprite.app
 
-        echo "Aseprite.app is ready. You can find it in the Aseprite directory."
-        echo "NOTE: For recompilation convenience, the source and other dependencies are stored in the deps/ directory. You may delete this in order to compile a newer version."
+            echo "Aseprite compiled, but an instance is already installed."
+            echo "The new version has been stored in the script directory. Move it to Applications/ manually to install."
+        else
+            mv Aseprite.app/ /Applications/
+            xattr -r -d com.apple.quarantine /Applications/Aseprite.app
+
+            echo "Aseprite compiled and installed."
+        fi
+
+        echo "NOTE: Compilation residue is in the deps/ folder so that you can recompile fast. You may remove this when compiling new versions."
         exit 0
     else
         echo "Failed to compile. Check Skia version and try again later..."
