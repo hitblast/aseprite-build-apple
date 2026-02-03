@@ -18,13 +18,18 @@ Aseprite is a powerful tool for creating pixel art and animations, and as a hobb
 > [!NOTE]
 > The script has been successfully tested with **macOS Tahoe 26**.
 
+Dependencies you have to install:
+
 - [Xcode](https://developer.apple.com/xcode/)
+
+Dependencies the program automatically attempts to install:
+
 - [CMake](https://cmake.org/)
 - [Ninja](https://ninja-build.org/)
 - [libyaml](https://github.com/yaml/libyaml)
 - [Git](https://git-scm.com/)
 
-If you want to install the dependencies, use this Homebrew command:
+If you want to install the dependencies manually though, use this Homebrew command:
 
 ```bash
 brew install libyaml cmake ninja git
