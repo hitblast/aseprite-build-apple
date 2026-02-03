@@ -13,17 +13,18 @@ export SKIAZIP=https://github.com/aseprite/skia/releases/download/m124-08a5439a6
 export ARCH=arm64
 
 if which -s cmake && \
+   which -s git && \
    which -s ninja && \
    { [ -n "$(ls /usr/local/include/yaml.h /opt/homebrew/include/yaml.h 2>/dev/null)" ] || \
      [ -n "$(ls /usr/local/lib/libyaml.* /opt/homebrew/lib/libyaml.* 2>/dev/null)" ]; }; then
-    echo "cmake, libyaml and ninja found."
+    echo "cmake, git, libyaml and ninja found."
 else
     if which -s brew; then
-        echo "Attempting to install the following with Homebrew: cmake, ninja, libyaml"
-        brew install cmake ninja libyaml
+        echo "Attempting to install the following with Homebrew: cmake, ninja, libyaml, git"
+        brew install cmake ninja libyaml git
     else
-        echo "Dependencies not found. Make sure these are installed: cmake, ninja, libyaml"
-        echo "TIP: Install Homebrew and run: brew install cmake ninja libyaml"
+        echo "Dependencies not found."
+        echo "TIP: Install Homebrew and run: brew install cmake ninja libyaml git"
         exit 1
     fi
 fi
