@@ -36,20 +36,16 @@ brew install libyaml cmake ninja git
 1. Clone the repository:
 
 ```bash
-# Clone using git.
 git clone https://github.com/hitblast/aseprite-build-apple.git
 ```
 
-2. Run the script:
+2. Run these commands in a row:
 
 ```bash
-# Change directory to the script.
 cd aseprite-build-apple
 
-# Make the script executable.
 chmod +x build.sh
 
-# Run the script.
 ./build.sh
 ```
 
