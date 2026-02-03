@@ -1,6 +1,5 @@
-# ✨ Aseprite Build Script for Apple Silicon
 
-This script builds Aseprite for the latest Apple Silicon Macs. A minimum of **macOS 11 (Big Sur)** is required to run the script.
+> This script builds Aseprite for the latest Apple Silicon Macs. A minimum of **macOS 11 (Big Sur)** is required to run the script.
 
 ## Table of Contents
 
