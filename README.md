@@ -53,6 +53,12 @@ chmod +x build.sh
 
 - The script temporarily unsets the `CC` and `CXX` environment variables during execution since Aseprite's source code does not behave well with it.
 
+## Icon Credits
+
+Link: https://macosicons.com/#/?icon=Knq8aGmihZ
+
+The Aseprite icon has been downloaded from [macOS Icons](https://macosicons.com/). Thanks to [patrick-l](https://macosicons.com/#/u/patrick-l) for making this icon.
+
 ## License
 
 This repo is under [Apache License (Version 2.0)](./LICENSE).
