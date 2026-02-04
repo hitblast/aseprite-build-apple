@@ -135,7 +135,8 @@ if [ "$?" -eq 0 ]; then
 
         cd $ROOT && mkdir -p Aseprite.app/Contents
         cp -r ./Aseprite.app.template/. ./Aseprite.app/Contents/
-
+        mkdir -p ./Aseprite.app/Contents/MacOS
+        mkdir -p ./Aseprite.app/Contents/Resources
         cp $ASEPRITE/build/bin/aseprite ./Aseprite.app/Contents/MacOS/
         cp -r $ASEPRITE/build/bin/data ./Aseprite.app/Contents/Resources/
         sed -i "" "s/1.2.34.1/$LATEST_RELEASE/" ./Aseprite.app/Contents/Info.plist
