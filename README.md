@@ -7,6 +7,7 @@
 - [Requirements](#requirements)
 - [Build Instructions](#build-instructions)
 - [Caveats](#caveats)
+- [Shameless Plug](#shameless-plug)
 - [License](#License)
 
 ## Why
@@ -63,6 +64,10 @@ chmod +x build.sh
 Link: https://macosicons.com/#/?icon=Knq8aGmihZ
 
 The Aseprite icon has been downloaded from [macOS Icons](https://macosicons.com/). Thanks to [patrick-l](https://macosicons.com/#/u/patrick-l) for making this icon.
+
+## Shameless Plug
+
+I've started working on my own solo open-source organization for Mac software. Maybe you can [check it out](https://machlit.github.io) while you're at it; I focus on automation and nifty goodie-like tools to sweeten up the average Mac experience in a terminal-friendly way.
 
 ## License
 
