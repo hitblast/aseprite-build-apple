@@ -21,6 +21,7 @@ Aseprite is a powerful tool for creating pixel art and animations, and as a hobb
 Dependencies you have to install:
 
 - [Xcode](https://developer.apple.com/xcode/)
+- [Homebrew](https://brew.sh)
 
 Dependencies the program automatically attempts to install:
 
