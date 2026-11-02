@@ -61,7 +61,7 @@ chmod +x build.sh
 
 ## Icon Credits
 
-Link: https://macosicons.com/#/?icon=Knq8aGmihZ
+Icon used: https://macosicons.com/?icon=nOtcsEuHRc
 
 The Aseprite icon has been downloaded from [macOS Icons](https://macosicons.com/). Thanks to [patrick-l](https://macosicons.com/#/u/patrick-l) for making this icon.
 
