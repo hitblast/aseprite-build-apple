@@ -31,11 +31,7 @@ Dependencies the program automatically attempts to install:
 - [libyaml](https://github.com/yaml/libyaml)
 - [Git](https://git-scm.com/)
 
-If you want to install the dependencies manually though, use this Homebrew command:
-
-```bash
-brew install libyaml cmake ninja git
-```
+You will install these in the next steps using [Homebrew](https://brew.sh), worry not!
 
 ## Instructions
 
@@ -50,9 +46,16 @@ git clone https://github.com/hitblast/aseprite-build-apple.git
 ```bash
 cd aseprite-build-apple
 
-chmod +x build.sh
+# Installing the dependencies.
+brew bundle install
+```
 
-./build.sh
+These will prepare the environment for compiling Aseprite.
+
+3. Finally, compile:
+
+```bash
+chmod +x build.sh && ./build.sh
 ```
 
 ## Caveats
